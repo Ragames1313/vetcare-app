@@ -145,6 +145,12 @@ El backend incluye tests unitarios para comprobar la logica principal de Citas s
 
 La documentacion detallada esta en `docs/tests-unitarios.md`.
 
+## Tests de integracion
+
+El backend incluye tests de integracion para comprobar endpoints completos usando MariaDB real.
+
+La documentacion detallada esta en `docs/tests-integracion.md`.
+
 ## CRUD de Citas
 
 El CRUD de Citas se ha anadido siguiendo la misma estructura que el CRUD de Mascotas.
