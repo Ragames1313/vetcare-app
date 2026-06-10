@@ -1,10 +1,12 @@
 const express = require('express');
+const citaRoutes = require('./routes/citaRoutes');
 const mascotaRoutes = require('./routes/mascotaRoutes');
 
 const app = express();
 
 app.use(express.json());
 
+app.use('/api/citas', citaRoutes);
 app.use('/api/mascotas', mascotaRoutes);
 
 app.use((error, req, res, next) => {
