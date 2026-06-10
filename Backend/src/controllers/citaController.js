@@ -60,6 +60,13 @@ function normalizeDateTime(value) {
   return dateTime;
 }
 
+function isPastDateTime(dateTime) {
+  const normalized = dateTime.replace(' ', 'T');
+  const appointmentDate = new Date(normalized);
+
+  return appointmentDate < new Date();
+}
+
 function validateCita(body) {
   const idMascota = parseId(body.id_mascota);
 
@@ -99,6 +106,26 @@ function validateCita(body) {
       observaciones: optionalText(body.observaciones)
     }
   };
+}
+
+async function validateBusinessRules(cita, excludedId = null) {
+  if (isPastDateTime(cita.fecha_hora)) {
+    return { error: 'No se puede crear o modificar una cita en una fecha pasada.' };
+  }
+
+  const existingCita = await citaRepository.findByVeterinarioAndFechaHora(
+    cita.id_veterinario,
+    cita.fecha_hora,
+    excludedId
+  );
+
+  if (existingCita) {
+    return {
+      error: 'El veterinario ya tiene una cita asignada en esa fecha y hora.'
+    };
+  }
+
+  return {};
 }
 
 function handleDatabaseError(error, res) {
@@ -149,6 +176,12 @@ async function createCita(req, res) {
   }
 
   try {
+    const businessValidation = await validateBusinessRules(validation.cita);
+
+    if (businessValidation.error) {
+      return res.status(409).json({ error: businessValidation.error });
+    }
+
     const cita = await citaRepository.create(validation.cita);
     return res.status(201).json(cita);
   } catch (error) {
@@ -170,11 +203,19 @@ async function updateCita(req, res) {
   }
 
   try {
-    const cita = await citaRepository.update(id, validation.cita);
+    const existingCita = await citaRepository.findById(id);
 
-    if (!cita) {
+    if (!existingCita) {
       return res.status(404).json({ error: 'Cita no encontrada.' });
     }
+
+    const businessValidation = await validateBusinessRules(validation.cita, id);
+
+    if (businessValidation.error) {
+      return res.status(409).json({ error: businessValidation.error });
+    }
+
+    const cita = await citaRepository.update(id, validation.cita);
 
     return res.json(cita);
   } catch (error) {

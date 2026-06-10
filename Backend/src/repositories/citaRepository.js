@@ -25,6 +25,20 @@ async function findById(id) {
   return citas[0] || null;
 }
 
+async function findByVeterinarioAndFechaHora(idVeterinario, fechaHora, excludedId = null) {
+  const params = [idVeterinario, fechaHora];
+  let sql = `${SELECT_CITA} WHERE id_veterinario = ? AND fecha_hora = ?`;
+
+  if (excludedId) {
+    sql += ' AND id_cita <> ?';
+    params.push(excludedId);
+  }
+
+  const citas = await database.query(`${sql} LIMIT 1`, params);
+
+  return citas[0] || null;
+}
+
 async function create(cita) {
   const result = await database.query(
     `INSERT INTO CITA
@@ -83,6 +97,7 @@ async function remove(id) {
 module.exports = {
   findAll,
   findById,
+  findByVeterinarioAndFechaHora,
   create,
   update,
   remove
