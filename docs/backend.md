@@ -4,7 +4,7 @@
 
 El backend de VetCare es una API REST sencilla para conectar la aplicacion con la base de datos MariaDB.
 
-En esta fase del proyecto se ha preparado la estructura minima necesaria para poder implementar el CRUD de Mascotas, sin anadir funcionalidades extra.
+En esta fase del proyecto se ha preparado la estructura minima necesaria para implementar el CRUD de Mascotas y el CRUD de Citas, sin anadir funcionalidades extra.
 
 ## Estructura
 
@@ -20,10 +20,13 @@ Backend/
       database.js
     routes/
       mascotaRoutes.js
+      citaRoutes.js
     controllers/
       mascotaController.js
+      citaController.js
     repositories/
       mascotaRepository.js
+      citaRepository.js
 ```
 
 ## Archivos principales
@@ -91,6 +94,16 @@ GET /api/mascotas
   -> tabla MASCOTA
 ```
 
+Otro ejemplo:
+
+```txt
+GET /api/citas
+  -> citaRoutes.js
+  -> citaController.js
+  -> citaRepository.js
+  -> tabla CITA
+```
+
 ## Variables de entorno
 
 El archivo `.env.example` indica las variables necesarias:
@@ -112,20 +125,19 @@ Actualmente el backend tiene implementado:
 
 ```txt
 /api/mascotas
+/api/citas
 ```
 
-Este endpoint permite gestionar el CRUD completo de Mascotas.
+Estos endpoints permiten gestionar el CRUD completo de Mascotas y Citas.
 
-## Pendiente: CRUD de Citas
+## CRUD de Citas
 
-Este apartado queda reservado para la siguiente fase del backend.
+El CRUD de Citas se ha anadido siguiendo la misma estructura que el CRUD de Mascotas.
 
-Cuando se implemente el CRUD de Citas se podra documentar aqui:
+Archivos principales:
 
-- rutas de citas
-- controlador de citas
-- repositorio de citas
-- operaciones disponibles
-- relacion con Mascota y Veterinario
+- `src/routes/citaRoutes.js`
+- `src/controllers/citaController.js`
+- `src/repositories/citaRepository.js`
 
-No se ha implementado todavia porque corresponde a otra issue del proyecto.
+La documentacion detallada esta en `docs/crud-citas.md`.
