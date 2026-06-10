@@ -139,6 +139,12 @@ El backend incluye dos reglas de negocio sencillas aplicadas sobre Citas:
 
 La documentacion detallada esta en `docs/reglas-negocio.md`.
 
+## Tests unitarios
+
+El backend incluye tests unitarios para comprobar la logica principal de Citas sin depender de MariaDB.
+
+La documentacion detallada esta en `docs/tests-unitarios.md`.
+
 ## CRUD de Citas
 
 El CRUD de Citas se ha anadido siguiendo la misma estructura que el CRUD de Mascotas.
