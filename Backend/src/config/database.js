@@ -32,6 +32,14 @@ async function query(sql, params = []) {
   }
 }
 
+async function close() {
+  if (pool) {
+    await pool.end();
+    pool = null;
+  }
+}
+
 module.exports = {
-  query
+  query,
+  close
 };
