@@ -115,6 +115,15 @@ Se validan solo los datos minimos para mantener el proyecto sencillo:
 
 No se han anadido reglas avanzadas porque esa parte corresponde a futuras issues de logica de negocio.
 
+## Reglas de negocio aplicadas
+
+Ademas de las validaciones basicas, el backend aplica dos reglas de negocio antes de crear o editar una cita:
+
+- no se puede crear o modificar una cita en una fecha pasada
+- un veterinario no puede tener dos citas en la misma fecha y hora
+
+Estas reglas estan documentadas con mas detalle en `docs/reglas-negocio.md`.
+
 ## Respuestas de error
 
 La API devuelve respuestas claras en JSON.
@@ -131,6 +140,10 @@ Ejemplos:
 
 ```json
 { "error": "La mascota o el veterinario indicado no existe." }
+```
+
+```json
+{ "error": "El veterinario ya tiene una cita asignada en esa fecha y hora." }
 ```
 
 ## Resumen

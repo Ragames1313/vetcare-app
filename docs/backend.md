@@ -130,6 +130,15 @@ Actualmente el backend tiene implementado:
 
 Estos endpoints permiten gestionar el CRUD completo de Mascotas y Citas.
 
+## Reglas de negocio
+
+El backend incluye dos reglas de negocio sencillas aplicadas sobre Citas:
+
+- no permitir citas en fechas pasadas
+- no permitir dos citas del mismo veterinario en la misma fecha y hora
+
+La documentacion detallada esta en `docs/reglas-negocio.md`.
+
 ## CRUD de Citas
 
 El CRUD de Citas se ha anadido siguiendo la misma estructura que el CRUD de Mascotas.
