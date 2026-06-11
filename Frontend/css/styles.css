@@ -272,6 +272,85 @@ h3 {
   background: var(--yellow);
 }
 
+/* Lista de citas */
+.appointment-list {
+  display: grid;
+  gap: 14px;
+}
+
+/* Tarjeta de cita */
+.appointment-card {
+  align-items: center;
+  background: #fbfdfc;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: auto 1fr auto;
+  padding: 16px;
+}
+
+/* Fecha de cita */
+.appointment-date {
+  align-items: center;
+  background: var(--blue);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  min-height: 62px;
+  min-width: 76px;
+  padding: 10px;
+  text-align: center;
+}
+
+.appointment-date.large {
+  min-height: 86px;
+  min-width: 120px;
+  width: 120px;
+}
+
+.appointment-date span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.appointment-date strong {
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+.appointment-info {
+  display: grid;
+  gap: 6px;
+}
+
+.appointment-info p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+/* Estado de cita */
+.status {
+  border-radius: 8px;
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 700;
+  justify-content: center;
+  padding: 6px 10px;
+  width: fit-content;
+}
+
+.status.pending {
+  background: var(--yellow);
+}
+
+.status.confirmed {
+  background: var(--green);
+}
+
 /* Acciones */
 .card-actions,
 .form-actions {
@@ -370,8 +449,22 @@ textarea:focus {
   text-align: center;
 }
 
-.detail-hero > div:not(.pet-avatar) {
+.detail-hero > div:not(.pet-avatar):not(.appointment-date) {
   flex: 1;
+}
+
+.appointment-hero {
+  justify-content: center;
+}
+
+.appointment-hero .appointment-date {
+  flex: 0 0 120px;
+  width: 120px;
+}
+
+.appointment-hero > div:not(.appointment-date) {
+  flex: 1;
+  text-align: center;
 }
 
 .detail-grid {
@@ -416,7 +509,7 @@ dd {
   .topbar,
   .page-heading,
   .detail-hero {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
   }
 
@@ -448,6 +541,18 @@ dd {
     text-align: center;
   }
 
+  .appointment-card {
+    align-items: center;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .appointment-date,
+  .appointment-date.large {
+    margin: 0 auto;
+    width: 100%;
+  }
+
   .pet-card .pet-avatar {
     font-size: 0;
     height: 54px;
@@ -462,6 +567,11 @@ dd {
   }
 
   .pet-info {
+    text-align: center;
+  }
+
+  .appointment-info {
+    justify-items: center;
     text-align: center;
   }
 

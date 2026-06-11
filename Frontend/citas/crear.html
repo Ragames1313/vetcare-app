@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VetCare | Crear cita</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <nav class="topbar" aria-label="Navegacion principal">
+      <a class="brand" href="../mascotas/index.html">
+        <span class="brand-mark">VC</span>
+        <span>VetCare</span>
+      </a>
+      <a class="nav-link" href="index.html">Volver al listado</a>
+    </nav>
+  </header>
+
+  <main class="page-shell narrow">
+    <!-- Cabecera de la vista -->
+    <section class="page-heading compact">
+      <div>
+        <p class="eyebrow">Alta de cita</p>
+        <h1>Nueva cita</h1>
+        <p class="heading-text">Formulario preparado para conectar mas adelante con la API.</p>
+      </div>
+    </section>
+
+    <!-- Formulario de creacion -->
+    <section class="content-panel">
+      <form class="pet-form" action="#" method="post">
+        <!-- Datos principales -->
+        <div class="form-grid">
+          <label>
+            ID mascota
+            <input type="number" name="id_mascota" placeholder="Ej. 1">
+          </label>
+          <label>
+            ID veterinario
+            <input type="number" name="id_veterinario" placeholder="Ej. 1">
+          </label>
+          <label>
+            Fecha
+            <input type="date" name="fecha">
+          </label>
+          <label>
+            Hora
+            <input type="time" name="hora">
+          </label>
+          <label>
+            Motivo
+            <input type="text" name="motivo" placeholder="Ej. Revision general">
+          </label>
+          <label>
+            Estado
+            <select name="estado">
+              <option>Pendiente</option>
+              <option>Confirmada</option>
+              <option>Finalizada</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- Observaciones -->
+        <label>
+          Observaciones
+          <textarea name="observaciones" rows="4" placeholder="Notas para la cita"></textarea>
+        </label>
+
+        <!-- Acciones del formulario -->
+        <div class="form-actions">
+          <a class="button ghost" href="index.html">Cancelar</a>
+          <button class="button primary" type="submit">Guardar cita</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
