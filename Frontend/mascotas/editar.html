@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VetCare | Editar mascota</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <nav class="topbar" aria-label="Navegacion principal">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">VC</span>
+        <span>VetCare</span>
+      </a>
+      <a class="nav-link" href="detalle.html">Volver al detalle</a>
+    </nav>
+  </header>
+
+  <main class="page-shell narrow">
+    <!-- Cabecera de la vista -->
+    <section class="page-heading compact">
+      <div>
+        <p class="eyebrow">Editar paciente</p>
+        <h1>Editar Luna</h1>
+        <p class="heading-text">Vista preparada para actualizar los datos de una mascota.</p>
+      </div>
+    </section>
+
+    <!-- Formulario de edicion -->
+    <section class="content-panel">
+      <form class="pet-form" action="#" method="post">
+        <!-- Datos principales -->
+        <div class="form-grid">
+          <label>
+            Nombre
+            <input type="text" name="nombre" value="Luna">
+          </label>
+          <label>
+            ID dueno
+            <input type="number" name="id_dueno" value="1">
+          </label>
+          <label>
+            Especie
+            <input type="text" name="especie" value="Perro">
+          </label>
+          <label>
+            Raza
+            <input type="text" name="raza" value="Labrador">
+          </label>
+          <label>
+            Fecha de nacimiento
+            <input type="date" name="fecha_nacimiento" value="2021-04-10">
+          </label>
+          <label>
+            Sexo
+            <select name="sexo">
+              <option selected>Hembra</option>
+              <option>Macho</option>
+              <option>No indicado</option>
+            </select>
+          </label>
+          <label>
+            Peso
+            <input type="number" name="peso" value="24.5" step="0.1">
+          </label>
+        </div>
+
+        <!-- Observaciones -->
+        <label>
+          Observaciones
+          <textarea name="observaciones" rows="4">Paciente tranquila. Revisar peso en la proxima cita.</textarea>
+        </label>
+
+        <!-- Acciones del formulario -->
+        <div class="form-actions">
+          <a class="button ghost" href="detalle.html">Cancelar</a>
+          <button class="button primary" type="submit">Guardar cambios</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

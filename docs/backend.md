@@ -151,6 +151,10 @@ El backend incluye tests de integracion para comprobar endpoints completos usand
 
 La documentacion detallada esta en `docs/tests-integracion.md`.
 
+## Frontend
+
+La maquetacion inicial de Mascotas esta documentada en `docs/frontend-mascotas.md`.
+
 ## CRUD de Citas
 
 El CRUD de Citas se ha anadido siguiendo la misma estructura que el CRUD de Mascotas.

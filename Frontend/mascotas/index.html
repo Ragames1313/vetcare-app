@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VetCare | Mascotas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <nav class="topbar" aria-label="Navegacion principal">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">VC</span>
+        <span>VetCare</span>
+      </a>
+      <div class="topbar-actions">
+        <a class="nav-link active" href="index.html">Mascotas</a>
+        <a class="nav-link disabled" href="#">Citas</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <!-- Cabecera de la vista -->
+    <section class="page-heading">
+      <div>
+        <p class="eyebrow">Gestion de clinica veterinaria</p>
+        <h1>Mascotas</h1>
+        <p class="heading-text">Listado principal de pacientes registrados en VetCare.</p>
+      </div>
+      <a class="button primary" href="crear.html">Nueva mascota</a>
+    </section>
+
+    <!-- Resumen de mascotas -->
+    <section class="summary-grid" aria-label="Resumen de mascotas">
+      <article class="summary-item">
+        <span class="summary-value">4</span>
+        <span class="summary-label">Mascotas</span>
+      </article>
+      <article class="summary-item">
+        <span class="summary-value">3</span>
+        <span class="summary-label">Duenos</span>
+      </article>
+      <article class="summary-item">
+        <span class="summary-value">2</span>
+        <span class="summary-label">Citas pendientes</span>
+      </article>
+    </section>
+
+    <!-- Lista de mascotas -->
+    <section class="content-panel">
+      <div class="panel-header">
+        <h2>Listado</h2>
+        <p>Datos de ejemplo preparados para maquetacion.</p>
+      </div>
+
+      <div class="pet-list">
+        <!-- Tarjeta de mascota -->
+        <article class="pet-card">
+          <div class="pet-avatar dog" data-name="Luna">Lu</div>
+          <div class="pet-info">
+            <h3>Luna</h3>
+            <p>Perro · Labrador · Hembra</p>
+            <span>Duena: Ana Lopez</span>
+          </div>
+          <div class="card-actions">
+            <a class="button secondary" href="detalle.html">Ver</a>
+            <a class="button ghost" href="editar.html">Editar</a>
+          </div>
+        </article>
+
+        <!-- Tarjeta de mascota -->
+        <article class="pet-card">
+          <div class="pet-avatar cat" data-name="Milo">Mi</div>
+          <div class="pet-info">
+            <h3>Milo</h3>
+            <p>Gato · Comun europeo · Macho</p>
+            <span>Dueno: Raul Martin</span>
+          </div>
+          <div class="card-actions">
+            <a class="button secondary" href="detalle.html">Ver</a>
+            <a class="button ghost" href="editar.html">Editar</a>
+          </div>
+        </article>
+
+        <!-- Tarjeta de mascota -->
+        <article class="pet-card">
+          <div class="pet-avatar bird" data-name="Kira">Ki</div>
+          <div class="pet-info">
+            <h3>Kira</h3>
+            <p>Conejo · Belier · Hembra</p>
+            <span>Duena: Marta Sanz</span>
+          </div>
+          <div class="card-actions">
+            <a class="button secondary" href="detalle.html">Ver</a>
+            <a class="button ghost" href="editar.html">Editar</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
