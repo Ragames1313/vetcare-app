@@ -1,7 +1,15 @@
 ﻿const API_BASE_URL = 'http://localhost:3000/api';
 const MONTHS = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', initApp);
+
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) {
+    window.location.reload();
+  }
+});
+
+function initApp() {
   const entity = document.body.dataset.entity;
   const view = document.body.dataset.view;
 
@@ -14,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (entity === 'citas' && view === 'detail') initCitaDetail();
   if (entity === 'citas' && view === 'create') initCitaForm('create');
   if (entity === 'citas' && view === 'edit') initCitaForm('edit');
-});
+}
 
 // API
 async function apiRequest(path, options = {}) {
