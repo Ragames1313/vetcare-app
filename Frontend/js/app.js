@@ -1,7 +1,15 @@
-const API_BASE_URL = 'http://localhost:3000/api';
+﻿const API_BASE_URL = 'http://localhost:3000/api';
 const MONTHS = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', initApp);
+
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) {
+    window.location.reload();
+  }
+});
+
+function initApp() {
   const entity = document.body.dataset.entity;
   const view = document.body.dataset.view;
 
@@ -14,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (entity === 'citas' && view === 'detail') initCitaDetail();
   if (entity === 'citas' && view === 'create') initCitaForm('create');
   if (entity === 'citas' && view === 'edit') initCitaForm('edit');
-});
+}
 
 // API
 async function apiRequest(path, options = {}) {
@@ -32,7 +40,7 @@ async function apiRequest(path, options = {}) {
   }
 
   if (!response.ok) {
-    throw new Error(payload && payload.error ? payload.error : 'No se ha podido completar la operacion.');
+    throw new Error(payload && payload.error ? payload.error : 'No se ha podido completar la operación.');
   }
 
   return payload;
@@ -301,7 +309,7 @@ function setNavTitle(entity, view, customLabel = '') {
   if (!title || !eyebrow || !description) return;
 
   if (view === 'list') {
-    eyebrow.textContent = entity === 'citas' ? 'Agenda veterinaria' : 'Gestion de clinica veterinaria';
+    eyebrow.textContent = entity === 'citas' ? 'Agenda veterinaria' : 'Gestión de clínica veterinaria';
     title.textContent = entity === 'citas' ? 'Citas' : 'Mascotas';
     description.textContent = entity === 'citas'
       ? 'Listado real de atenciones programadas.'
@@ -327,7 +335,7 @@ function setNavTitle(entity, view, customLabel = '') {
 
   eyebrow.textContent = entity === 'citas' ? 'Ficha de cita' : 'Ficha de mascota';
   title.textContent = customLabel || (entity === 'citas' ? 'Detalle de cita' : 'Detalle de mascota');
-  description.textContent = 'Informacion completa del registro seleccionado.';
+  description.textContent = 'Información completa del registro seleccionado.';
 }
 
 function ensureDeleteButton(hero, className, label, onClick) {
@@ -884,3 +892,4 @@ function populateCitaForm(fields, cita) {
   fields.estado.value = normalize(cita.estado) || 'Pendiente';
   fields.observaciones.value = cita.observaciones ?? '';
 }
+
