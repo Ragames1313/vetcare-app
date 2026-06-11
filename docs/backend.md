@@ -151,6 +151,12 @@ El backend incluye tests de integracion para comprobar endpoints completos usand
 
 La documentacion detallada esta en `docs/tests-integracion.md`.
 
+## Integracion Continua
+
+El repositorio incluye un workflow basico de GitHub Actions para ejecutar comprobaciones automaticas.
+
+La documentacion detallada esta en `docs/ci.md`.
+
 ## Frontend
 
 La maquetacion inicial de Mascotas esta documentada en `docs/frontend-mascotas.md`.
