@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VetCare | Editar cita</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-entity="citas" data-view="edit">
+  <!-- Header -->
+  <header class="app-header">
+    <nav class="topbar" aria-label="Navegación principal">
+      <a class="brand" href="../mascotas/index.html">
+        <span class="brand-mark">VC</span>
+        <span>VetCare</span>
+      </a>
+      <a class="nav-link" href="detalle.html">Volver al detalle</a>
+    </nav>
+  </header>
+
+  <main class="page-shell narrow">
+    <!-- Cabecera de la vista -->
+    <section class="page-heading compact">
+      <div>
+        <p class="eyebrow">Editar cita</p>
+        <h1>Revisión general</h1>
+        <p class="heading-text">Vista conectada con la API para actualizar una cita.</p>
+      </div>
+    </section>
+
+    <!-- Formulario de edición -->
+    <section class="content-panel">
+      <form class="pet-form" action="#" method="post">
+        <!-- Datos principales -->
+        <div class="form-grid">
+          <label>
+            ID mascota
+            <input type="number" name="id_mascota" value="1" min="1" required>
+          </label>
+          <label>
+            ID veterinario
+            <input type="number" name="id_veterinario" value="1" min="1" required>
+          </label>
+          <label>
+            Fecha y hora
+            <input type="datetime-local" name="fecha_hora" value="2026-06-15T10:30" required>
+          </label>
+          <label>
+            Motivo
+            <input type="text" name="motivo" value="Revisión general" required>
+          </label>
+          <label>
+            Estado
+            <select name="estado" required>
+              <option selected>Pendiente</option>
+              <option>Confirmada</option>
+              <option>Finalizada</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- Observaciones -->
+        <label>
+          Observaciones
+          <textarea name="observaciones" rows="4">Primera visita de revisión. Comprobar vacunas.</textarea>
+        </label>
+
+        <!-- Acciones del formulario -->
+        <div class="form-actions">
+          <a class="button ghost" href="detalle.html">Cancelar</a>
+          <button class="button primary" type="submit">Guardar cambios</button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script defer src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+name: VetCare CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  backend-checks:
+    name: Backend basic checks
+    runs-on: ubuntu-latest
+
+    steps:
+      # Descarga el codigo del repositorio en el runner de GitHub Actions.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Prepara Node.js para ejecutar el backend y sus tests unitarios.
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: Backend/package-lock.json
+
+      # Instala dependencias usando el lockfile para que CI sea reproducible.
+      - name: Install backend dependencies
+        working-directory: Backend
+        run: npm ci
+
+      # Instala y arranca MariaDB para poder ejecutar los tests de integracion.
+      - name: Install MariaDB
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mariadb-server mariadb-client
+          sudo service mariadb start
+
+      # Crea un usuario sencillo para que el backend pueda conectarse a MariaDB en CI.
+      - name: Prepare database
+        run: |
+          sudo mariadb -e "CREATE USER 'vetcare_ci'@'%' IDENTIFIED BY 'vetcare_ci';"
+          sudo mariadb -e "GRANT ALL PRIVILEGES ON *.* TO 'vetcare_ci'@'%';"
+          sudo mariadb -e "FLUSH PRIVILEGES;"
+          sudo mariadb < Backend/DB/reset.sql
+
+      # Ejecuta los tests unitarios ya configurados en el proyecto.
+      - name: Run unit tests
+        working-directory: Backend
+        run: npm test
+
+      # Ejecuta los tests de integracion usando la MariaDB preparada en este workflow.
+      - name: Run integration tests
+        working-directory: Backend
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_USER: vetcare_ci
+          DB_PASSWORD: vetcare_ci
+          DB_NAME: vetcare
+        run: npm run test:integration
+
+      # Comprueba sintaxis de archivos JavaScript principales sin arrancar MariaDB.
+      - name: Check JavaScript syntax
+        run: |
+          node --check Backend/src/app.js
+          node --check Backend/src/server.js
+          node --check Backend/src/config/database.js
+          node --check Backend/src/controllers/mascotaController.js
+          node --check Backend/src/controllers/citaController.js
+          node --check Backend/src/repositories/mascotaRepository.js
+          node --check Backend/src/repositories/citaRepository.js
+          node --check Backend/src/routes/mascotaRoutes.js
+          node --check Backend/src/routes/citaRoutes.js
+          node --check Frontend/js/app.js
