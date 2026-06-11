@@ -2,14 +2,16 @@
 
 ## Objetivo
 
-Esta parte del proyecto maqueta las vistas principales de Citas usando solo HTML y CSS.
+Esta parte del proyecto conecta las vistas principales de Citas con la API REST del backend.
 
-Corresponde a la issue de frontend de Citas, por lo que no se conecta todavia con la API y no incluye JavaScript.
+La maquetacion previa se ha mantenido, pero ahora la agenda se carga desde la API y los formularios ejecutan el CRUD real.
 
-## Estructura creada
+## Estructura actual
 
 ```txt
 Frontend/
+  js/
+    app.js
   citas/
     index.html
     crear.html
@@ -32,35 +34,34 @@ Vista de listado de citas.
 Incluye:
 
 - cabecera de VetCare
-- resumen visual de agenda
-- tarjetas de citas
-- enlaces a detalle, edicion y creacion
+- resumen visual calculado desde la API
+- tarjetas de citas cargadas desde el backend
+- enlaces a detalle, edicion y borrado
 
 ### `citas/crear.html`
 
 Vista de creacion de una cita.
 
-Incluye un formulario con los campos principales de la tabla `CITA`.
+Incluye un formulario con los campos principales de la tabla `CITA`, usando `datetime-local` para ajustar la fecha y la hora al formato real del backend.
 
 ### `citas/detalle.html`
 
 Vista de detalle de una cita.
 
-Muestra los datos principales, la relacion con mascota y veterinario, y observaciones.
+Muestra los datos reales de la cita seleccionada y permite editar o borrar el registro.
 
 ### `citas/editar.html`
 
 Vista de edicion de una cita.
 
-Usa el mismo estilo que la creacion, pero con datos ya rellenos para representar una edicion real.
+Usa el mismo estilo que la creacion, pero con datos cargados desde la API para editar el registro real.
 
 ## Decisiones tomadas
 
-- No se usa JavaScript porque esta issue solo pide maquetacion.
-- No se consume la API porque la conexion con backend corresponde a una issue posterior.
 - No se usa React, Vue, Angular ni frameworks CSS.
-- Los datos visibles son de ejemplo para poder ver como quedara la interfaz.
 - Se reutiliza el estilo de Mascotas para mantener coherencia visual.
+- Se usa un unico script compartido para no duplicar logica.
+- Las validaciones de negocio se muestran de forma clara sin sobrecargar la interfaz.
 - Las tarjetas de citas usan una caja de fecha/hora para destacar la agenda.
 
 ## Responsive
@@ -81,15 +82,13 @@ Se puede abrir directamente en el navegador:
 Frontend/citas/index.html
 ```
 
-Desde ahi se puede navegar a las otras vistas mediante los enlaces de la maqueta.
+Desde ahi se puede navegar a las otras vistas y realizar operaciones CRUD reales.
 
 ## Resumen
 
-La entrega deja preparadas las cuatro vistas principales de Citas:
+Las vistas de Citas quedan conectadas a la API y preparadas para trabajar con datos reales:
 
 - listado
 - creacion
 - detalle
 - edicion
-
-Quedan listas para conectarse con la API en una tarea posterior.

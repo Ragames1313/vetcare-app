@@ -60,3 +60,13 @@ CREATE TABLE IF NOT EXISTS CITA (
     ON UPDATE CASCADE
     ON DELETE RESTRICT
 ) ENGINE=InnoDB;
+
+INSERT INTO DUENO (nombre, apellidos, telefono, email, direccion) VALUES
+('Laura', 'García López', '600123123', 'laura.garcia@mail.com', 'Calle Mayor 12'),
+('Carlos', 'Pérez Martín', '611234234', 'carlos.perez@mail.com', 'Avenida Aragón 45'),
+('Marta', 'Sánchez Ruiz', '622345345', 'marta.sanchez@mail.com', 'Calle del Sol 8');
+
+INSERT INTO VETERINARIO (nombre, apellidos, especialidad, telefono, email) VALUES
+('Ana', 'Martínez Gómez', 'Medicina General', '655111111', 'ana.martinez@vetcare.com'),
+('David', 'Fernández Ruiz', 'Cirugía', '655222222', 'david.fernandez@vetcare.com'),
+('Lucía', 'Moreno Sánchez', 'Dermatología', '655333333', 'lucia.moreno@vetcare.com');
