@@ -6,7 +6,7 @@
   <title>VetCare | Crear mascota</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
+<body data-entity="mascotas" data-view="create">
   <!-- Header -->
   <header class="app-header">
     <nav class="topbar" aria-label="Navegacion principal">
@@ -24,7 +24,7 @@
       <div>
         <p class="eyebrow">Alta de paciente</p>
         <h1>Nueva mascota</h1>
-        <p class="heading-text">Formulario preparado para conectar mas adelante con la API.</p>
+        <p class="heading-text">Formulario conectado con la API para dar de alta una mascota.</p>
       </div>
     </section>
 
@@ -35,15 +35,15 @@
         <div class="form-grid">
           <label>
             Nombre
-            <input type="text" name="nombre" placeholder="Ej. Luna">
+            <input type="text" name="nombre" placeholder="Ej. Luna" required>
           </label>
           <label>
             ID dueno
-            <input type="number" name="id_dueno" placeholder="Ej. 1">
+            <input type="number" name="id_dueno" placeholder="Ej. 1" min="1" required>
           </label>
           <label>
             Especie
-            <input type="text" name="especie" placeholder="Ej. Perro">
+            <input type="text" name="especie" placeholder="Ej. Perro" required>
           </label>
           <label>
             Raza
@@ -63,7 +63,7 @@
           </label>
           <label>
             Peso
-            <input type="number" name="peso" placeholder="Ej. 24.5" step="0.1">
+            <input type="number" name="peso" placeholder="Ej. 24.5" step="0.1" min="0">
           </label>
         </div>
 
@@ -81,5 +81,6 @@
       </form>
     </section>
   </main>
+  <script defer src="../js/app.js"></script>
 </body>
 </html>
