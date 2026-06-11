@@ -155,6 +155,8 @@ La documentacion detallada esta en `docs/tests-integracion.md`.
 
 La maquetacion inicial de Mascotas esta documentada en `docs/frontend-mascotas.md`.
 
+La maquetacion inicial de Citas esta documentada en `docs/frontend-citas.md`.
+
 ## CRUD de Citas
 
 El CRUD de Citas se ha anadido siguiendo la misma estructura que el CRUD de Mascotas.

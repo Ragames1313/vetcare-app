@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VetCare | Citas</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <nav class="topbar" aria-label="Navegacion principal">
+      <a class="brand" href="../mascotas/index.html">
+        <span class="brand-mark">VC</span>
+        <span>VetCare</span>
+      </a>
+      <div class="topbar-actions">
+        <a class="nav-link" href="../mascotas/index.html">Mascotas</a>
+        <a class="nav-link active" href="index.html">Citas</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <!-- Cabecera de la vista -->
+    <section class="page-heading">
+      <div>
+        <p class="eyebrow">Agenda veterinaria</p>
+        <h1>Citas</h1>
+        <p class="heading-text">Listado principal de atenciones programadas.</p>
+      </div>
+      <a class="button primary" href="crear.html">Nueva cita</a>
+    </section>
+
+    <!-- Resumen de citas -->
+    <section class="summary-grid" aria-label="Resumen de citas">
+      <article class="summary-item">
+        <span class="summary-value">5</span>
+        <span class="summary-label">Citas</span>
+      </article>
+      <article class="summary-item">
+        <span class="summary-value">3</span>
+        <span class="summary-label">Pendientes</span>
+      </article>
+      <article class="summary-item">
+        <span class="summary-value">2</span>
+        <span class="summary-label">Veterinarios</span>
+      </article>
+    </section>
+
+    <!-- Lista de citas -->
+    <section class="content-panel">
+      <div class="panel-header">
+        <h2>Agenda</h2>
+        <p>Datos de ejemplo preparados para maquetacion.</p>
+      </div>
+
+      <div class="appointment-list">
+        <!-- Tarjeta de cita -->
+        <article class="appointment-card">
+          <div class="appointment-date">
+            <span>15 Jun</span>
+            <strong>10:30</strong>
+          </div>
+          <div class="appointment-info">
+            <h3>Revision general</h3>
+            <p>Luna · Dr. Carlos Garcia</p>
+            <span class="status pending">Pendiente</span>
+          </div>
+          <div class="card-actions">
+            <a class="button secondary" href="detalle.html">Ver</a>
+            <a class="button ghost" href="editar.html">Editar</a>
+          </div>
+        </article>
+
+        <!-- Tarjeta de cita -->
+        <article class="appointment-card">
+          <div class="appointment-date">
+            <span>16 Jun</span>
+            <strong>12:00</strong>
+          </div>
+          <div class="appointment-info">
+            <h3>Vacunacion</h3>
+            <p>Milo · Dra. Laura Perez</p>
+            <span class="status confirmed">Confirmada</span>
+          </div>
+          <div class="card-actions">
+            <a class="button secondary" href="detalle.html">Ver</a>
+            <a class="button ghost" href="editar.html">Editar</a>
+          </div>
+        </article>
+
+        <!-- Tarjeta de cita -->
+        <article class="appointment-card">
+          <div class="appointment-date">
+            <span>18 Jun</span>
+            <strong>09:15</strong>
+          </div>
+          <div class="appointment-info">
+            <h3>Control de peso</h3>
+            <p>Kira · Dr. Carlos Garcia</p>
+            <span class="status pending">Pendiente</span>
+          </div>
+          <div class="card-actions">
+            <a class="button secondary" href="detalle.html">Ver</a>
+            <a class="button ghost" href="editar.html">Editar</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
