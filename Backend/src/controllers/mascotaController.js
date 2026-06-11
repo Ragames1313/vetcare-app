@@ -37,6 +37,12 @@ function validateDate(value) {
     return 'La fecha de nacimiento debe tener formato YYYY-MM-DD.';
   }
 
+  const today = new Date().toISOString().slice(0, 10);
+
+  if (value > today) {
+    return 'La fecha de nacimiento no puede ser posterior a la fecha actual.';
+  }
+
   return null;
 }
 
