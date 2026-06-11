@@ -2,16 +2,18 @@
 
 ## Objetivo
 
-Esta parte del proyecto maqueta las vistas principales de Mascotas usando solo HTML y CSS.
+Esta parte del proyecto conecta las vistas principales de Mascotas con la API REST del backend.
 
-Corresponde a la issue de frontend de Mascotas, por lo que no se conecta todavia con la API y no incluye JavaScript.
+La base visual sigue siendo la misma que ya estaba maquetada, pero ahora la informacion se carga desde la API y los formularios realizan operaciones reales sobre la base de datos.
 
-## Estructura creada
+## Estructura actual
 
 ```txt
 Frontend/
   css/
     styles.css
+  js/
+    app.js
   mascotas/
     index.html
     crear.html
@@ -28,27 +30,27 @@ Vista de listado de mascotas.
 Incluye:
 
 - cabecera de VetCare
-- resumen visual
-- tarjetas de mascotas
-- enlaces a detalle, edicion y creacion
+- resumen visual calculado desde la API
+- tarjetas de mascotas cargadas desde el backend
+- enlaces a detalle, edicion y borrado
 
 ### `mascotas/crear.html`
 
 Vista de creacion de una mascota.
 
-Incluye un formulario con los campos principales de la tabla `MASCOTA`.
+Incluye un formulario con los campos principales de la tabla `MASCOTA` y validacion basica antes de enviar.
 
 ### `mascotas/detalle.html`
 
 Vista de detalle de una mascota.
 
-Muestra datos principales y observaciones de ejemplo.
+Muestra los datos reales de la mascota seleccionada y permite editar o borrar el registro.
 
 ### `mascotas/editar.html`
 
 Vista de edicion de una mascota.
 
-Usa el mismo estilo que la creacion, pero con datos ya rellenos para representar una edicion real.
+Usa el mismo estilo que la creacion, pero con datos cargados desde la API para editar el registro real.
 
 ## CSS
 
@@ -58,11 +60,10 @@ Se ha usado una unica hoja de estilos para mantener el frontend simple y facil d
 
 ## Decisiones tomadas
 
-- No se usa JavaScript porque esta issue solo pide maquetacion.
-- No se consume la API porque la conexion con backend corresponde a una issue posterior.
 - No se usa React, Vue, Angular ni frameworks CSS.
-- Los datos visibles son de ejemplo para poder ver como quedara la interfaz.
-- El diseno es responsive y se adapta a movil y escritorio.
+- Se mantiene la estetica simple y ordenada que ya estaba planteada.
+- Se usa un unico script compartido para no duplicar logica.
+- Los datos se cargan desde la API, pero la presentacion sigue siendo sencilla y facil de defender.
 
 ## Responsive
 
@@ -83,15 +84,13 @@ Se puede abrir directamente en el navegador:
 Frontend/mascotas/index.html
 ```
 
-Desde ahi se puede navegar a las otras vistas mediante los enlaces de la maqueta.
+Desde ahi se puede navegar a las otras vistas y realizar operaciones CRUD reales.
 
 ## Resumen
 
-La entrega deja preparadas las cuatro vistas principales de Mascotas:
+Las vistas de Mascotas quedan conectadas a la API y preparadas para trabajar con datos reales:
 
 - listado
 - creacion
 - detalle
 - edicion
-
-Quedan listas para conectarse con la API en una tarea posterior.
